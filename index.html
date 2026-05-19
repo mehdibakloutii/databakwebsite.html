@@ -3,7 +3,22 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DataBak — Agence Data Full-Service</title>
+  <title>DataBak — Agence Data & Engineering Paris</title>
+  <meta name="description" content="DataBak est une agence data full-service basée à Paris. Pipelines, data engineering, analytics, BI, Data Science et cloud — nous transformons vos données en valeur métier."/>
+  <meta name="keywords" content="agence data paris, data engineering, ETL pipeline, dbt, BigQuery, freelance data, data science, BI dashboard, consultant data france"/>
+  <meta name="author" content="Mehdi Baklouti"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://mehdibakloutii.github.io/databak-website/"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="DataBak — Agence Data Full-Service Paris"/>
+  <meta property="og:description" content="Pipelines, data engineering, analytics et BI. DataBak transforme vos données en avantage compétitif."/>
+  <meta property="og:url" content="https://mehdibakloutii.github.io/databak-website/"/>
+  <meta property="og:site_name" content="DataBak"/>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="DataBak — Agence Data Full-Service Paris"/>
+  <meta name="twitter:description" content="Pipelines, data engineering, analytics et BI. DataBak transforme vos données en avantage compétitif."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -569,6 +584,98 @@
       letter-spacing: .04em;
     }
 
+    /* ══ ABOUT ══ */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .founder-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 32px;
+      text-align: center;
+    }
+    .founder-avatar {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--bg);
+      margin: 0 auto 18px;
+      box-shadow: 0 0 30px rgba(59,130,246,0.25);
+    }
+    .founder-name {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .founder-role {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--blue);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .founder-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 18px 0;
+    }
+    .founder-tags { display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; }
+    .about-text p {
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 18px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text strong { color: var(--text); font-weight: 500; }
+
+    /* ══ FAQ ══ */
+    .faq-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      padding: 22px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: var(--display);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: background .2s;
+      gap: 16px;
+    }
+    .faq-q:hover { background: var(--bg2); }
+    .faq-icon {
+      font-family: var(--mono);
+      font-size: 18px;
+      color: var(--blue);
+      flex-shrink: 0;
+      transition: transform .3s;
+      line-height: 1;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .35s ease;
+      padding: 0 28px;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 28px 20px; }
+    .faq-a p { color: var(--muted); font-size: 14px; font-weight: 300; line-height: 1.8; }
+
     /* ══ FOOTER ══ */
     footer {
       border-top: 1px solid var(--border);
@@ -620,7 +727,8 @@
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#process">Approche</a></li>
-    <li><a href="#why">Pourquoi nous</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Démarrer un projet</a></li>
   </ul>
 </nav>
@@ -872,6 +980,105 @@
   </div>
 </section>
 
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">À propos</p>
+      <h2>Le fondateur</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div class="founder-card">
+        <div class="founder-avatar">MB</div>
+        <div class="founder-name">Mehdi Baklouti</div>
+        <div class="founder-role">Founder & Data Engineer</div>
+        <div class="founder-divider"></div>
+        <div class="founder-tags">
+          <span class="stag">Data Engineering</span>
+          <span class="stag">Python</span>
+          <span class="stag">dbt</span>
+          <span class="stag">BigQuery</span>
+          <span class="stag">Spark</span>
+          <span class="stag">Banque & Finance</span>
+        </div>
+        <div class="founder-divider"></div>
+        <a href="https://www.linkedin.com/in/mehdi-baklouti-9a8a4795/" target="_blank" class="clink" style="justify-content:center;font-size:12px;">
+          <span class="clink-icon">💼</span> Voir le profil LinkedIn
+        </a>
+      </div>
+      <div class="about-text">
+        <p>
+          Avant de fonder DataBak, j'ai exercé en tant que <strong>Data Engineer dans le secteur bancaire</strong> — un environnement exigeant où la qualité de la donnée n'est pas négociable, où chaque pipeline doit être fiable, auditable et performant. Cette expérience m'a forgé une rigueur technique et une vision claire de ce que signifie livrer de la valeur par la data.
+        </p>
+        <p>
+          Mais au fond, j'ai toujours été animé par quelque chose de plus grand que le salariat : <strong>l'envie de construire</strong>. L'entrepreneuriat m'a toujours attiré — cette liberté de créer, de prendre des risques calculés, de porter un projet de A à Z. DataBak est la concrétisation naturelle de cette ambition.
+        </p>
+        <p>
+          J'ai fondé cette agence avec une conviction simple : <strong>les entreprises ont une donnée de qualité, mais peu savent l'exploiter</strong>. Mon rôle est de combler ce fossé — en construisant des infrastructures robustes, en livrant vite, et en restant un partenaire de confiance sur la durée.
+        </p>
+        <p>
+          Chez DataBak, vous ne traitez pas avec une ESN anonyme. Vous travaillez directement avec moi — et c'est exactement pour ça que <strong>chaque mission compte</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">FAQ</p>
+      <h2>Questions fréquentes</h2>
+      <p class="sub">Tout ce que vous voulez savoir avant de démarrer un projet avec DataBak.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quels types de missions prenez-vous en charge ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>DataBak intervient sur l'ensemble de la chaîne data : construction de pipelines ETL/ELT, mise en place de data warehouses, modélisation dbt, dashboards BI, déploiement cloud (GCP, AWS) et conseil en architecture data. Nous travaillons aussi bien sur des missions courtes (audit, POC) que sur des engagements longs (régie, build complet).</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Intervenez-vous en remote ou sur site ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Les deux. La majorité de nos missions se déroulent en full remote, ce qui permet d'intervenir pour des clients partout en France. Des déplacements ponctuels sur Paris et en Île-de-France sont possibles selon les besoins du projet.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quels sont vos délais de démarrage ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Nous visons un premier livrable sous 72h après le lancement officiel de la mission. Un appel de cadrage est organisé dès réception de votre demande pour définir les priorités, les accès et le périmètre exact. Notre approche itérative garantit une valeur visible dès les premières semaines.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quelle est votre politique tarifaire ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Nos tarifs sont adaptés à chaque projet : forfait pour les missions bornées (audit, POC, build), TJM pour les missions en régie. Nous établissons un devis clair et détaillé après un premier échange. Transparence totale : pas de coûts cachés, pas de mauvaise surprise.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Livrez-vous le code source et la documentation ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Absolument. Tout le code produit est le vôtre : hébergé sur votre dépôt Git, documenté, testé et versionné. Nous réalisons également un transfert de compétences en fin de mission pour que vos équipes puissent maintenir et faire évoluer les solutions en autonomie.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Travaillez-vous avec des startups ou uniquement des grandes entreprises ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>DataBak travaille avec tous types de structures : startups en hypercroissance qui ont besoin de poser des fondations data solides, PME qui veulent industrialiser leur reporting, et grandes entreprises qui cherchent un renfort technique expert. Chaque contexte est unique — c'est ce qui rend le travail intéressant.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ CONTACT ══ -->
 <section id="contact">
   <div class="wrap">
@@ -981,6 +1188,14 @@
 </footer>
 
 <script>
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
   // Scroll reveal
   const obs = new IntersectionObserver(
     entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
