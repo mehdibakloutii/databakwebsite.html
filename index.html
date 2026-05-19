@@ -957,9 +957,12 @@
           <label>Description du projet *</label>
           <textarea id="f-msg" placeholder="Décrivez votre contexte, vos besoins, les technologies utilisées, la durée envisagée…"></textarea>
         </div>
-        <button class="fsub-btn" onclick="submitForm()">Envoyer la demande →</button>
+        <button class="fsub-btn" id="submit-btn" onclick="submitForm()">Envoyer la demande →</button>
         <div class="success-banner" id="success-banner">
           ✓ DEMANDE REÇUE — Nous vous répondons sous 24h.
+        </div>
+        <div id="error-banner" style="display:none;margin-top:14px;padding:12px 16px;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.25);border-radius:4px;font-family:var(--mono);font-size:12px;color:#F87171;text-align:center;letter-spacing:.04em;">
+          ✗ ERREUR — Veuillez réessayer ou contacter mehdibakloutipro@gmail.com
         </div>
       </div>
     </div>
@@ -985,17 +988,49 @@
   );
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  // Form
-  function submitForm() {
+  // Form — Formspree
+  async function submitForm() {
     const req = ['f-prenom','f-nom','f-email','f-type','f-msg'];
     if (req.some(id => !document.getElementById(id).value.trim())) {
       alert('Merci de remplir tous les champs obligatoires (*).');
       return;
     }
-    document.getElementById('success-banner').style.display = 'block';
-    ['f-prenom','f-nom','f-email','f-soc','f-tel','f-msg'].forEach(id => document.getElementById(id).value = '');
-    document.getElementById('f-type').value = '';
-    document.getElementById('f-budget').value = '';
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Envoi en cours…';
+    btn.disabled = true;
+
+    const data = {
+      prenom:    document.getElementById('f-prenom').value,
+      nom:       document.getElementById('f-nom').value,
+      email:     document.getElementById('f-email').value,
+      societe:   document.getElementById('f-soc').value,
+      telephone: document.getElementById('f-tel').value,
+      prestation:document.getElementById('f-type').value,
+      budget:    document.getElementById('f-budget').value,
+      message:   document.getElementById('f-msg').value,
+    };
+
+    try {
+      const res = await fetch('https://formspree.io/f/mjgzgwvj', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        document.getElementById('success-banner').style.display = 'block';
+        document.getElementById('error-banner').style.display = 'none';
+        ['f-prenom','f-nom','f-email','f-soc','f-tel','f-msg'].forEach(id => document.getElementById(id).value = '');
+        document.getElementById('f-type').value = '';
+        document.getElementById('f-budget').value = '';
+        btn.textContent = 'Demande envoyée ✓';
+      } else {
+        throw new Error('Erreur serveur');
+      }
+    } catch {
+      document.getElementById('error-banner').style.display = 'block';
+      btn.textContent = 'Envoyer la demande →';
+      btn.disabled = false;
+    }
   }
 </script>
 </body>
