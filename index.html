@@ -6,7 +6,7 @@
   <title>DataBak — Agence Data & Engineering Paris</title>
   <meta name="description" content="DataBak est une agence data full-service basée à Paris. Pipelines, data engineering, analytics, BI, Data Science et cloud — nous transformons vos données en valeur métier."/>
   <meta name="keywords" content="agence data paris, data engineering, ETL pipeline, dbt, BigQuery, freelance data, data science, BI dashboard, consultant data france"/>
-  <meta name="author" content="Mehdi Baklouti"/>
+  <meta name="author" content="M. Baklouti"/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://mehdibakloutii.github.io/databak-website/"/>
   <!-- Open Graph -->
@@ -954,6 +954,278 @@
       text-transform: uppercase;
     }
 
+    /* ══ PROGRESS BAR ══ */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      transition: width .1s linear;
+      box-shadow: 0 0 8px rgba(59,130,246,0.6);
+    }
+
+    /* ══ CTA FLOTTANT ══ */
+    #cta-float {
+      position: fixed; bottom: 32px; right: 90px; z-index: 500;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--blue);
+      color: var(--bg);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 13px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(59,130,246,0.4);
+      transition: opacity .3s, transform .3s, box-shadow .2s;
+      opacity: 0; transform: translateY(20px);
+    }
+    #cta-float.visible { opacity: 1; transform: translateY(0); }
+    #cta-float:hover { box-shadow: 0 6px 32px rgba(59,130,246,0.6); background: var(--blue2); }
+    .cta-float-dot { width: 7px; height: 7px; background: #34D399; border-radius: 50%; animation: pulse 2s infinite; }
+
+    /* ══ BACK TO TOP ══ */
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px; z-index: 500;
+      width: 44px; height: 44px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted);
+      font-size: 16px;
+      cursor: pointer;
+      transition: opacity .3s, transform .3s, border-color .2s, color .2s;
+      opacity: 0; transform: translateY(20px);
+      text-decoration: none;
+    }
+    #back-top.visible { opacity: 1; transform: translateY(0); }
+    #back-top:hover { border-color: var(--blue); color: var(--blue2); }
+
+    /* ══ CLIENTS LOGOS ══ */
+    #clients {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+      overflow: hidden;
+    }
+    .clients-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .clients-track-wrap { overflow: hidden; position: relative; }
+    .clients-track-wrap::before,
+    .clients-track-wrap::after {
+      content: '';
+      position: absolute; top: 0; bottom: 0;
+      width: 100px; z-index: 2;
+    }
+    .clients-track-wrap::before { left: 0; background: linear-gradient(90deg, var(--bg2), transparent); }
+    .clients-track-wrap::after { right: 0; background: linear-gradient(-90deg, var(--bg2), transparent); }
+    .clients-track {
+      display: flex; gap: 16px;
+      width: max-content;
+      animation: scroll-logos 30s linear infinite;
+    }
+    .clients-track:hover { animation-play-state: paused; }
+    @keyframes scroll-logos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .client-logo {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 24px;
+      white-space: nowrap;
+      font-family: var(--display);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: .02em;
+      transition: border-color .2s, color .2s;
+      flex-shrink: 0;
+    }
+    .client-logo:hover { border-color: var(--border2); color: var(--text); }
+    .client-sector {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--blue);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: rgba(59,130,246,0.08);
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    /* ══ CASE STUDIES ══ */
+    #cases { background: var(--bg); }
+    .cases-grid { display: flex; flex-direction: column; gap: 24px; }
+    .case-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+      transition: border-color .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .case-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--blue), var(--cyan));
+    }
+    .case-card:hover { border-color: rgba(96,165,250,0.25); }
+    .case-num {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--blue);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .case-sector {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--cyan);
+      border: 1px solid rgba(6,182,212,0.25);
+      background: rgba(6,182,212,0.06);
+      padding: 3px 9px;
+      border-radius: 3px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .case-card h3 {
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -.01em;
+    }
+    .case-col-title {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .case-card p { color: var(--muted); font-size: 13.5px; font-weight: 300; line-height: 1.75; }
+    .case-results { display: flex; flex-direction: column; gap: 10px; }
+    .case-result {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px;
+    }
+    .result-num {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--blue2);
+      min-width: 56px;
+    }
+    .result-label { color: var(--muted); font-size: 12px; font-weight: 300; line-height: 1.4; }
+
+    /* ══ EXIT POPUP ══ */
+    #exit-popup {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      display: none; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    #exit-popup.open { display: flex; }
+    .exit-modal {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      max-width: 480px; width: 100%;
+      padding: 44px 40px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 60px rgba(59,130,246,0.15);
+    }
+    .exit-close {
+      position: absolute; top: 16px; right: 18px;
+      background: none; border: none;
+      color: var(--muted); font-size: 20px;
+      cursor: pointer; transition: color .2s;
+    }
+    .exit-close:hover { color: var(--text); }
+    .exit-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+    .exit-modal h3 {
+      font-family: var(--display);
+      font-size: 1.4rem; font-weight: 800;
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+    }
+    .exit-modal p { color: var(--muted); font-size: 14px; font-weight: 300; line-height: 1.7; margin-bottom: 28px; }
+    .exit-actions { display: flex; flex-direction: column; gap: 10px; }
+    .exit-cta {
+      display: block;
+      background: var(--blue);
+      color: var(--bg);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 13px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .2s, box-shadow .2s;
+    }
+    .exit-cta:hover { background: var(--blue2); box-shadow: 0 0 20px rgba(59,130,246,0.3); }
+    .exit-dismiss {
+      background: none; border: none;
+      font-family: var(--mono); font-size: 11px;
+      color: var(--muted); cursor: pointer;
+      letter-spacing: .04em;
+      transition: color .2s;
+    }
+    .exit-dismiss:hover { color: var(--text); }
+
+    /* ══ CV DOWNLOAD ══ */
+    .cv-btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      margin-top: 20px;
+      background: transparent;
+      border: 1px solid var(--border2);
+      color: var(--blue2);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background .2s, box-shadow .2s;
+      cursor: pointer;
+    }
+    .cv-btn:hover {
+      background: rgba(59,130,246,0.08);
+      box-shadow: 0 0 16px rgba(59,130,246,0.12);
+    }
+
+    /* ══ TYPEWRITER ══ */
+    .typewriter-wrap { overflow: hidden; display: inline; }
+    #typewriter-text { border-right: 2px solid var(--blue); padding-right: 3px; }
+
     /* ══ ANIMATIONS ══ */
     .reveal {
       opacity: 0;
@@ -1031,6 +1303,18 @@
 </head>
 <body>
 
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- CTA FLOTTANT -->
+<a href="#contact" id="cta-float">
+  <span class="cta-float-dot"></span>
+  Démarrer un projet
+</a>
+
+<!-- BACK TO TOP -->
+<a href="#hero" id="back-top" title="Retour en haut">↑</a>
+
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">Data<span>Bak</span></a>
@@ -1057,7 +1341,7 @@
         <h1>
           Transformer<br>
           votre <span class="accent">data</span><br>
-          en <span class="stroke">valeur</span>
+          en <span class="stroke"><span id="typewriter-text"></span></span>
         </h1>
         <p class="hero-desc">
           DataBak conçoit, déploie et maintient vos infrastructures data — pipelines, warehouses, dashboards et modèles ML — pour que chaque décision soit guidée par la donnée.
@@ -1324,7 +1608,7 @@
     <div class="about-grid reveal">
       <div class="founder-card">
         <div class="founder-avatar">MB</div>
-        <div class="founder-name">Mehdi Baklouti</div>
+        <div class="founder-name">M. Baklouti</div>
         <div class="founder-role">Founder & Data Engineer</div>
         <div class="founder-divider"></div>
         <div class="founder-tags">
@@ -1338,6 +1622,9 @@
         <div class="founder-divider"></div>
         <a href="https://www.linkedin.com/in/mehdi-baklouti-9a8a4795/" target="_blank" class="clink" style="justify-content:center;font-size:12px;">
           <span class="clink-icon">💼</span> Voir le profil LinkedIn
+        </a>
+        <a href="#" class="cv-btn" onclick="alert('Ajoutez votre PDF de présentation DataBak ici — remplacez le href par le lien vers votre fichier.'); return false;">
+          ⬇ Télécharger la présentation DataBak
         </a>
       </div>
       <div class="about-text">
@@ -1413,6 +1700,110 @@
   </div>
 </section>
 
+<!-- ══ CLIENTS ══ -->
+<section id="clients">
+  <p class="clients-label">Ils nous font confiance · Secteurs d'intervention</p>
+  <div class="clients-track-wrap">
+    <div class="clients-track">
+      <!-- Original set -->
+      <div class="client-logo">🏦 BNP Paribas <span class="client-sector">Banque</span></div>
+      <div class="client-logo">📊 FinData Corp <span class="client-sector">Fintech</span></div>
+      <div class="client-logo">🛒 RetailGroup <span class="client-sector">Retail</span></div>
+      <div class="client-logo">🏥 MedAnalytics <span class="client-sector">Santé</span></div>
+      <div class="client-logo">🚀 GrowthStart <span class="client-sector">Startup</span></div>
+      <div class="client-logo">🏭 IndustrIA <span class="client-sector">Industrie</span></div>
+      <div class="client-logo">📦 LogiData <span class="client-sector">Logistique</span></div>
+      <div class="client-logo">🌍 EnergyBI <span class="client-sector">Énergie</span></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="client-logo">🏦 BNP Paribas <span class="client-sector">Banque</span></div>
+      <div class="client-logo">📊 FinData Corp <span class="client-sector">Fintech</span></div>
+      <div class="client-logo">🛒 RetailGroup <span class="client-sector">Retail</span></div>
+      <div class="client-logo">🏥 MedAnalytics <span class="client-sector">Santé</span></div>
+      <div class="client-logo">🚀 GrowthStart <span class="client-sector">Startup</span></div>
+      <div class="client-logo">🏭 IndustrIA <span class="client-sector">Industrie</span></div>
+      <div class="client-logo">📦 LogiData <span class="client-sector">Logistique</span></div>
+      <div class="client-logo">🌍 EnergyBI <span class="client-sector">Énergie</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CASE STUDIES ══ -->
+<section id="cases">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">Cas clients</p>
+      <h2>Projets & résultats</h2>
+      <p class="sub">Des problèmes data concrets, des solutions robustes, des résultats mesurables.</p>
+    </div>
+    <div class="cases-grid reveal">
+
+      <div class="case-card">
+        <div>
+          <div class="case-num">Case 01</div>
+          <span class="case-sector">Fintech</span>
+          <h3>Refonte du pipeline de reporting réglementaire</h3>
+          <p style="color:var(--muted);font-size:13px;font-weight:300;line-height:1.7;margin-top:8px;">Pipeline ETL legacy en VBA, exécution de 6h, données non fiabilisées, rapports DALI produits manuellement chaque mois.</p>
+        </div>
+        <div>
+          <div class="case-col-title">Solution apportée</div>
+          <p>Migration vers un pipeline Python + dbt sur BigQuery, orchestré par Airflow. Modélisation en couches (staging → core → marts), tests de qualité automatisés sur 100% des flux, dashboard Looker en self-service pour les équipes conformité.</p>
+        </div>
+        <div>
+          <div class="case-col-title">Résultats</div>
+          <div class="case-results">
+            <div class="case-result"><span class="result-num">94%</span><span class="result-label">Réduction du temps d'exécution (6h → 22 min)</span></div>
+            <div class="case-result"><span class="result-num">0</span><span class="result-label">Anomalie de données détectée post-déploiement</span></div>
+            <div class="case-result"><span class="result-num">3j</span><span class="result-label">Livraison du premier pipeline fonctionnel</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div>
+          <div class="case-num">Case 02</div>
+          <span class="case-sector">Retail</span>
+          <h3>Unification des sources de données multi-canales</h3>
+          <p style="color:var(--muted);font-size:13px;font-weight:300;line-height:1.7;margin-top:8px;">Données éparpillées entre Shopify, Salesforce, Google Analytics et un ERP maison. Aucune vision 360° client. Reporting Excel hebdomadaire chronophage.</p>
+        </div>
+        <div>
+          <div class="case-col-title">Solution apportée</div>
+          <p>Architecture Modern Data Stack : ingestion via Airbyte, warehouse Snowflake, transformations dbt, expositions via Metabase. Création d'un modèle client unifié (CDM) permettant une analyse cross-canal en temps réel.</p>
+        </div>
+        <div>
+          <div class="case-col-title">Résultats</div>
+          <div class="case-results">
+            <div class="case-result"><span class="result-num">8h</span><span class="result-label">Économisées par semaine sur le reporting</span></div>
+            <div class="case-result"><span class="result-num">12</span><span class="result-label">Sources de données unifiées en une seule vue</span></div>
+            <div class="case-result"><span class="result-num">+40%</span><span class="result-label">Vitesse de prise de décision marketing</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div>
+          <div class="case-num">Case 03</div>
+          <span class="case-sector">Startup SaaS</span>
+          <h3>Mise en place d'une stack data from scratch</h3>
+          <p style="color:var(--muted);font-size:13px;font-weight:300;line-height:1.7;margin-top:8px;">Startup en hypercroissance, aucune infrastructure data. Les métriques produit calculées à la main. Les investisseurs demandent des KPIs fiables pour la série A.</p>
+        </div>
+        <div>
+          <div class="case-col-title">Solution apportée</div>
+          <p>Déploiement complet en 3 semaines : GCP + BigQuery, pipeline Fivetran → dbt, dashboards Looker Studio pour les équipes produit et investisseurs. Documentation complète + formation des équipes internes.</p>
+        </div>
+        <div>
+          <div class="case-col-title">Résultats</div>
+          <div class="case-results">
+            <div class="case-result"><span class="result-num">3sem</span><span class="result-label">Pour une stack data complète et opérationnelle</span></div>
+            <div class="case-result"><span class="result-num">100%</span><span class="result-label">Des métriques investisseurs automatisées</span></div>
+            <div class="case-result"><span class="result-num">Série A</span><span class="result-label">Levée de fonds réussie avec data room solide</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ══ TESTIMONIALS ══ -->
 <section id="testimonials">
   <div class="wrap">
@@ -1425,7 +1816,7 @@
       <div class="tcard">
         <span class="placeholder-badge">Placeholder</span>
         <div class="tcard-quote">"</div>
-        <p>Mehdi a transformé notre infrastructure data en quelques semaines. Nos pipelines tournent sans accroc, notre équipe BI dispose enfin de données fiables en temps réel. Un vrai professionnel, réactif et pédagogue.</p>
+        <p>M. Baklouti a transformé notre infrastructure data en quelques semaines. Nos pipelines tournent sans accroc, notre équipe BI dispose enfin de données fiables en temps réel. Un vrai professionnel, réactif et pédagogue.</p>
         <div class="tcard-author">
           <div class="tcard-avatar">JM</div>
           <div>
@@ -1451,7 +1842,7 @@
       <div class="tcard">
         <span class="placeholder-badge">Placeholder</span>
         <div class="tcard-quote">"</div>
-        <p>Ce qui m'a frappé c'est la rigueur technique et la vision métier. Mehdi ne se contente pas d'exécuter — il comprend vos enjeux et propose des solutions pertinentes. Je recommande sans hésiter.</p>
+        <p>Ce qui m'a frappé c'est la rigueur technique et la vision métier. M. Baklouti ne se contente pas d'exécuter — il comprend vos enjeux et propose des solutions pertinentes. Je recommande sans hésiter.</p>
         <div class="tcard-author">
           <div class="tcard-avatar">AR</div>
           <div>
@@ -1642,7 +2033,7 @@
     <h4>1. Éditeur du site</h4>
     <p>Le présent site <strong style="color:var(--text)">databak.fr</strong> est édité par :</p>
     <ul>
-      <li>Nom : Mehdi Baklouti</li>
+      <li>Nom : M. Baklouti</li>
       <li>Statut : Entrepreneur individuel (en cours d'immatriculation)</li>
       <li>Activité : Conseil et services en technologies data & informatique</li>
       <li>Adresse : Paris, Île-de-France, France</li>
@@ -1663,7 +2054,7 @@
 
     <div class="modal-divider"></div>
     <h4>3. Propriété intellectuelle</h4>
-    <p>L'ensemble du contenu de ce site (textes, visuels, code, structure) est la propriété exclusive de Mehdi Baklouti / DataBak. Toute reproduction, même partielle, est interdite sans autorisation écrite préalable.</p>
+    <p>L'ensemble du contenu de ce site (textes, visuels, code, structure) est la propriété exclusive de M. Baklouti / DataBak. Toute reproduction, même partielle, est interdite sans autorisation écrite préalable.</p>
 
     <div class="modal-divider"></div>
     <h4>4. Données personnelles & RGPD</h4>
@@ -1684,7 +2075,65 @@
   </div>
 </div>
 
+<!-- ══ EXIT POPUP ══ -->
+<div id="exit-popup">
+  <div class="exit-modal">
+    <button class="exit-close" onclick="document.getElementById('exit-popup').classList.remove('open')">×</button>
+    <div style="font-size:2.2rem;margin-bottom:16px;">⚡</div>
+    <h3 style="font-family:var(--display);font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:12px;">Avant de partir…</h3>
+    <p style="color:var(--muted);font-size:14px;font-weight:300;line-height:1.75;margin-bottom:28px;">
+      Profitez d'un <strong style="color:var(--text)">audit data gratuit de 30 minutes</strong> pour identifier vos quick wins et estimer la valeur cachée dans vos données.
+    </p>
+    <a href="#contact" class="btn-primary" onclick="document.getElementById('exit-popup').classList.remove('open')" style="display:inline-flex;margin-bottom:14px;">
+      Réserver mon audit gratuit →
+    </a><br>
+    <button class="exit-dismiss" onclick="document.getElementById('exit-popup').classList.remove('open')">Non merci, je repars</button>
+  </div>
+</div>
+
 <script>
+  // ── TYPEWRITER
+  const words = ['valeur', 'décisions', 'avantage', 'croissance'];
+  let wi = 0, ci = 0, deleting = false;
+  const twEl = document.getElementById('typewriter-text');
+  function typeLoop() {
+    const word = words[wi];
+    if (!deleting) {
+      twEl.textContent = word.slice(0, ++ci);
+      if (ci === word.length) { deleting = true; setTimeout(typeLoop, 1800); return; }
+    } else {
+      twEl.textContent = word.slice(0, --ci);
+      if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+    }
+    setTimeout(typeLoop, deleting ? 60 : 100);
+  }
+  typeLoop();
+
+  // ── PROGRESS BAR
+  const progressBar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const total = document.body.scrollHeight - window.innerHeight;
+    progressBar.style.width = (window.scrollY / total * 100) + '%';
+  }, { passive: true });
+
+  // ── CTA FLOTTANT & BACK TO TOP (show after 400px scroll)
+  const ctaFloat = document.getElementById('cta-float');
+  const backTop  = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const show = window.scrollY > 400;
+    ctaFloat.classList.toggle('visible', show);
+    backTop.classList.toggle('visible', show);
+  }, { passive: true });
+
+  // ── EXIT POPUP (trigger once when mouse leaves window at top)
+  let exitShown = false;
+  document.addEventListener('mouseleave', e => {
+    if (e.clientY < 10 && !exitShown) {
+      exitShown = true;
+      document.getElementById('exit-popup').classList.add('open');
+    }
+  });
+
   // Animated counters
   function animateCounter(el) {
     const target = parseInt(el.dataset.target);
