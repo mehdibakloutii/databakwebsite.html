@@ -754,6 +754,206 @@
     .modal a { color: var(--blue2); }
     .modal-divider { height: 1px; background: var(--border); margin: 20px 0; }
 
+    /* ══ COUNTERS ══ */
+    #counters { padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .counters-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .counter-item {
+      background: var(--bg2);
+      padding: 36px 28px;
+      text-align: center;
+      position: relative;
+    }
+    .counter-item::after {
+      content: '';
+      position: absolute;
+      top: 20%; bottom: 20%;
+      right: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .counter-item:last-child::after { display: none; }
+    .counter-num {
+      font-family: var(--display);
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: 1;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--blue2), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+    .counter-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .counter-suffix {
+      font-family: var(--display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--blue2), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ══ STACK ══ */
+    #stack { background: var(--bg2); }
+    .stack-categories { display: flex; flex-direction: column; gap: 40px; }
+    .stack-cat-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--blue);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .stack-cat-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .stack-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .stack-pill {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      transition: border-color .25s, color .25s, box-shadow .25s, transform .2s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .stack-pill::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(6,182,212,0.04));
+      opacity: 0;
+      transition: opacity .25s;
+    }
+    .stack-pill:hover {
+      border-color: rgba(96,165,250,0.4);
+      color: var(--blue2);
+      box-shadow: 0 0 16px rgba(59,130,246,0.1);
+      transform: translateY(-2px);
+    }
+    .stack-pill:hover::before { opacity: 1; }
+    .stack-pill-icon { font-size: 16px; }
+    .stack-pill-level {
+      margin-left: auto;
+      padding-left: 10px;
+      font-size: 9px;
+      letter-spacing: .06em;
+      opacity: .5;
+    }
+
+    /* ══ TESTIMONIALS ══ */
+    #testimonials { }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 20px;
+    }
+    .tcard {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 30px;
+      position: relative;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .tcard:hover {
+      border-color: rgba(96,165,250,0.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .tcard-quote {
+      font-size: 28px;
+      line-height: 1;
+      color: var(--blue);
+      font-family: Georgia, serif;
+      margin-bottom: 14px;
+      opacity: .6;
+    }
+    .tcard p {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 22px;
+    }
+    .tcard-author {
+      display: flex; align-items: center; gap: 12px;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+    .tcard-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--display);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--bg);
+      flex-shrink: 0;
+    }
+    .tcard-name {
+      font-family: var(--display);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .tcard-role {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
+    .tcard-stars {
+      margin-left: auto;
+      color: #FCD34D;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+    .placeholder-badge {
+      position: absolute;
+      top: 14px; right: 14px;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .08em;
+      color: var(--blue);
+      background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.2);
+      padding: 3px 7px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
     /* ══ ANIMATIONS ══ */
     .reveal {
       opacity: 0;
@@ -762,15 +962,70 @@
     }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* ══ RESPONSIVE ══ */
+    /* ══ RESPONSIVE MOBILE ══ */
     @media (max-width: 800px) {
-      .hero-inner { grid-template-columns: 1fr; }
+      /* NAV */
+      nav { padding: 0 1.2rem; }
+      .nav-links { display: none; }
+
+      /* HERO */
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
       .hero-visual { display: none; }
-      .why-grid, .contact-grid { grid-template-columns: 1fr; }
-      .frow { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr 1fr; }
+      h1 { font-size: 2.6rem; }
+      .hero-desc { font-size: 15px; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-ghost { width: 100%; text-align: center; justify-content: center; }
+
+      /* COUNTERS */
+      .counters-grid { grid-template-columns: 1fr 1fr; }
+      .counter-item::after { display: none; }
+      .counter-num { font-size: 2rem; }
+
+      /* SERVICES */
+      .services-grid { grid-template-columns: 1fr; }
+
+      /* PROCESS */
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 28px; }
       .process-steps::before { display: none; }
-      .nav-links li:not(:last-child) { display: none; }
+      .pstep { padding: 0; }
+
+      /* WHY */
+      .why-grid { grid-template-columns: 1fr; gap: 32px; }
+      .why-visual { display: none; }
+
+      /* ABOUT */
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+
+      /* STACK */
+      .stack-logos { gap: 8px; }
+      .stack-pill { font-size: 11px; padding: 8px 12px; }
+
+      /* TESTIMONIALS */
+      .testi-grid { grid-template-columns: 1fr; }
+
+      /* FAQ */
+      .faq-q { font-size: 13px; padding: 18px 20px; }
+      .faq-a { padding: 0 20px; }
+      .faq-item.open .faq-a { padding: 0 20px 16px; }
+
+      /* CONTACT */
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .frow { grid-template-columns: 1fr; }
+      .cform { padding: 24px; }
+
+      /* FOOTER */
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+      /* SECTIONS */
+      section { padding: 70px 0; }
+      h2 { font-size: 1.7rem; }
+    }
+
+    @media (max-width: 420px) {
+      h1 { font-size: 2.1rem; }
+      .counters-grid { grid-template-columns: 1fr 1fr; }
+      .counter-num { font-size: 1.7rem; }
+      .process-steps { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -781,7 +1036,7 @@
   <a href="#hero" class="nav-logo">Data<span>Bak</span></a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#process">Approche</a></li>
+    <li><a href="#stack">Stack</a></li>
     <li><a href="#about">À propos</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Démarrer un projet</a></li>
@@ -847,6 +1102,30 @@
             <span class="hstat-label">First delivery</span>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COUNTERS ══ -->
+<section id="counters">
+  <div class="wrap">
+    <div class="counters-grid">
+      <div class="counter-item">
+        <span class="counter-num" data-target="98" data-suffix="%">0</span>
+        <span class="counter-label">Uptime SLA</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="72" data-suffix="h">0</span>
+        <span class="counter-label">First delivery</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="10" data-suffix="x">0</span>
+        <span class="counter-label">Gains performance</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" data-target="100" data-suffix="%">0</span>
+        <span class="counter-label">Satisfaction client</span>
       </div>
     </div>
   </div>
@@ -1079,6 +1358,113 @@
   </div>
 </section>
 
+<!-- ══ STACK ══ -->
+<section id="stack">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">Stack technique</p>
+      <h2>Nos technologies</h2>
+      <p class="sub">Un écosystème data moderne, maîtrisé de bout en bout.</p>
+    </div>
+    <div class="stack-categories reveal">
+      <div>
+        <div class="stack-cat-title">Data Engineering & Orchestration</div>
+        <div class="stack-logos">
+          <div class="stack-pill"><span class="stack-pill-icon">🐍</span>Python<span class="stack-pill-level">EXPERT</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">🔷</span>dbt<span class="stack-pill-level">EXPERT</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">🌊</span>Apache Spark<span class="stack-pill-level">AVANCÉ</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">🔁</span>Airflow<span class="stack-pill-level">AVANCÉ</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">📦</span>Pandas<span class="stack-pill-level">EXPERT</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">⚡</span>Kafka<span class="stack-pill-level">INTERMÉDIAIRE</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="stack-cat-title">Data Warehouse & Bases de données</div>
+        <div class="stack-logos">
+          <div class="stack-pill"><span class="stack-pill-icon">☁️</span>BigQuery<span class="stack-pill-level">EXPERT</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">❄️</span>Snowflake<span class="stack-pill-level">AVANCÉ</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">🐘</span>PostgreSQL<span class="stack-pill-level">EXPERT</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">🍃</span>MongoDB<span class="stack-pill-level">INTERMÉDIAIRE</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">⚡</span>Redis<span class="stack-pill-level">INTERMÉDIAIRE</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">📊</span>SQL<span class="stack-pill-level">EXPERT</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="stack-cat-title">Cloud & Infrastructure</div>
+        <div class="stack-logos">
+          <div class="stack-pill"><span class="stack-pill-icon">🔵</span>GCP<span class="stack-pill-level">AVANCÉ</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">🟠</span>AWS<span class="stack-pill-level">INTERMÉDIAIRE</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">🐳</span>Docker<span class="stack-pill-level">AVANCÉ</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">🏗️</span>Terraform<span class="stack-pill-level">INTERMÉDIAIRE</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">⚙️</span>GitHub Actions<span class="stack-pill-level">AVANCÉ</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">🐧</span>Linux<span class="stack-pill-level">AVANCÉ</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="stack-cat-title">BI & Visualisation</div>
+        <div class="stack-logos">
+          <div class="stack-pill"><span class="stack-pill-icon">📈</span>Power BI<span class="stack-pill-level">AVANCÉ</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">🔍</span>Looker Studio<span class="stack-pill-level">AVANCÉ</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">📊</span>Metabase<span class="stack-pill-level">AVANCÉ</span></div>
+          <div class="stack-pill"><span class="stack-pill-icon">🎨</span>Matplotlib<span class="stack-pill-level">INTERMÉDIAIRE</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">Témoignages</p>
+      <h2>Ce qu'ils disent</h2>
+      <p class="sub">Les retours de nos clients et collaborateurs. À remplacer avec vos vrais témoignages.</p>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="tcard">
+        <span class="placeholder-badge">Placeholder</span>
+        <div class="tcard-quote">"</div>
+        <p>Mehdi a transformé notre infrastructure data en quelques semaines. Nos pipelines tournent sans accroc, notre équipe BI dispose enfin de données fiables en temps réel. Un vrai professionnel, réactif et pédagogue.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">JM</div>
+          <div>
+            <div class="tcard-name">Jean-Marc D.</div>
+            <div class="tcard-role">Head of Data · Fintech Paris</div>
+          </div>
+          <div class="tcard-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="tcard">
+        <span class="placeholder-badge">Placeholder</span>
+        <div class="tcard-quote">"</div>
+        <p>Nous avions besoin d'un expert data rapidement pour un projet critique. DataBak a livré un pipeline complet et documenté en moins de deux semaines. Résultat bluffant, communication impeccable.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">SL</div>
+          <div>
+            <div class="tcard-name">Sophie L.</div>
+            <div class="tcard-role">CTO · Scale-up e-commerce</div>
+          </div>
+          <div class="tcard-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="tcard">
+        <span class="placeholder-badge">Placeholder</span>
+        <div class="tcard-quote">"</div>
+        <p>Ce qui m'a frappé c'est la rigueur technique et la vision métier. Mehdi ne se contente pas d'exécuter — il comprend vos enjeux et propose des solutions pertinentes. Je recommande sans hésiter.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">AR</div>
+          <div>
+            <div class="tcard-name">Antoine R.</div>
+            <div class="tcard-role">DSI · PME industrie</div>
+          </div>
+          <div class="tcard-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ FAQ ══ -->
 <section id="faq">
   <div class="wrap">
@@ -1299,6 +1685,32 @@
 </div>
 
 <script>
+  // Animated counters
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(current) + suffix;
+    }, 16);
+  }
+  const counterObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        counterObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.counter-num').forEach(el => counterObs.observe(el));
+
   // FAQ accordion
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
