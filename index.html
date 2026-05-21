@@ -19,6 +19,9 @@
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="DataBak — Agence Data Full-Service Paris"/>
   <meta name="twitter:description" content="Pipelines, data engineering, analytics et BI. DataBak transforme vos données en avantage compétitif."/>
+  <!-- Favicon SVG inline -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080B10'/%3E%3Crect x='2' y='2' width='28' height='28' rx='5' fill='none' stroke='%233B82F6' stroke-width='1'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='14' fill='%233B82F6'%3EDB%3C/text%3E%3C/svg%3E"/>
+  <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080B10'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='14' fill='%233B82F6'%3EDB%3C/text%3E%3C/svg%3E"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -1638,6 +1641,126 @@
       .counter-num { font-size: 1.7rem; }
       .process-steps { grid-template-columns: 1fr; }
     }
+
+    /* ══ SPLASH SCREEN ══ */
+    #splash {
+      position: fixed; inset: 0; z-index: 10000;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 20px;
+      transition: opacity .5s ease, visibility .5s ease;
+    }
+    #splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .splash-logo {
+      font-family: var(--display);
+      font-size: 3rem; font-weight: 800;
+      letter-spacing: -.04em;
+    }
+    .splash-logo span { color: var(--blue); }
+    .splash-bar {
+      width: 160px; height: 2px;
+      background: var(--border);
+      border-radius: 2px; overflow: hidden;
+    }
+    .splash-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      border-radius: 2px;
+      animation: splashLoad 1.6s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    @keyframes splashLoad {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+    .splash-label {
+      font-family: var(--mono); font-size: 11px;
+      color: var(--muted); letter-spacing: .1em;
+      text-transform: uppercase;
+      animation: fadeInUp .4s ease .2s both;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ══ NEWSLETTER ══ */
+    #newsletter { background: linear-gradient(135deg, #0a1628, #0d1f3c); border-top: 1px solid var(--border2); border-bottom: 1px solid var(--border2); padding: 70px 0; }
+    .newsletter-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 56px; align-items: center;
+    }
+    .newsletter-left h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 12px; }
+    .newsletter-left p { color: var(--muted); font-size: 15px; font-weight: 300; line-height: 1.75; }
+    .nl-perks { display: flex; flex-direction: column; gap: 8px; margin-top: 18px; }
+    .nl-perk {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--mono); font-size: 12px; color: var(--muted);
+    }
+    .nl-perk::before { content: '→'; color: var(--blue); }
+    .newsletter-form {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border2);
+      border-radius: 10px; padding: 32px;
+    }
+    .nl-form-title {
+      font-family: var(--display); font-size: 15px; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .nl-form-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 20px; letter-spacing: .04em; }
+    .nl-row { display: flex; gap: 10px; }
+    .nl-input {
+      flex: 1; background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px; padding: 11px 14px;
+      font-family: var(--body); font-size: 14px;
+      color: var(--text); outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .nl-input::placeholder { color: #3a4150; }
+    .nl-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(59,130,246,.1); }
+    .nl-btn {
+      background: var(--blue); color: white;
+      border: none; border-radius: 6px;
+      font-family: var(--mono); font-size: 12px;
+      font-weight: 500; letter-spacing: .06em;
+      padding: 11px 20px; cursor: pointer;
+      white-space: nowrap;
+      transition: background .2s, box-shadow .2s;
+    }
+    .nl-btn:hover { background: var(--blue2); box-shadow: 0 0 20px rgba(59,130,246,.3); }
+    .nl-notice { font-size: 11px; color: var(--muted); margin-top: 12px; font-family: var(--mono); }
+    .nl-success { display: none; margin-top: 14px; padding: 12px; background: rgba(52,211,153,.08); border: 1px solid rgba(52,211,153,.2); border-radius: 6px; font-family: var(--mono); font-size: 12px; color: #34D399; text-align: center; }
+    @media (max-width: 800px) { .newsletter-inner { grid-template-columns: 1fr; } .nl-row { flex-direction: column; } }
+
+    /* ══ COOKIE BANNER ══ */
+    #cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9998;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 18px clamp(1.5rem, 5vw, 3.5rem);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      transform: translateY(100%);
+      transition: transform .4s cubic-bezier(.34,1.2,.64,1);
+      box-shadow: 0 -8px 32px rgba(0,0,0,.3);
+    }
+    #cookie-banner.show { transform: translateY(0); }
+    .cookie-text {
+      font-size: 13px; color: var(--muted); font-weight: 300;
+      flex: 1; min-width: 260px;
+    }
+    .cookie-text a { color: var(--blue2); }
+    .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .cookie-btn {
+      font-family: var(--mono); font-size: 11px; letter-spacing: .06em;
+      text-transform: uppercase; padding: 9px 18px;
+      border-radius: 4px; cursor: pointer;
+      transition: all .2s;
+    }
+    .cookie-accept { background: var(--blue); color: white; border: none; }
+    .cookie-accept:hover { background: var(--blue2); }
+    .cookie-refuse { background: none; color: var(--muted); border: 1px solid var(--border); }
+    .cookie-refuse:hover { border-color: var(--muted); color: var(--text); }
   </style>
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -1662,6 +1785,25 @@
   <!-- <script defer data-domain="votredomaine.fr" src="https://plausible.io/js/script.js"></script> -->
 </head>
 <body>
+
+<!-- ══ SPLASH SCREEN ══ -->
+<div id="splash">
+  <div class="splash-logo">Data<span>Bak</span></div>
+  <div class="splash-bar"><div class="splash-progress"></div></div>
+  <div class="splash-label">Chargement en cours…</div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner">
+  <p class="cookie-text">
+    🍪 Ce site utilise des technologies pour améliorer votre expérience. Aucun cookie publicitaire. En savoir plus dans nos
+    <a href="#" onclick="document.getElementById('modal-ml').classList.add('open');return false;">mentions légales</a>.
+  </p>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-refuse" onclick="closeCookie(false)">Refuser</button>
+    <button class="cookie-btn cookie-accept" onclick="closeCookie(true)">Accepter</button>
+  </div>
+</div>
 
 <!-- AVAILABILITY BANNER -->
 <div id="avail-banner">
@@ -2518,6 +2660,38 @@
   </div>
 </section>
 
+<!-- ══ NEWSLETTER ══ -->
+<section id="newsletter">
+  <div class="wrap">
+    <div class="newsletter-inner">
+      <div class="newsletter-left reveal">
+        <p class="label">Newsletter</p>
+        <h2>Restez à la pointe<br>de la <span style="color:var(--blue)">data</span></h2>
+        <p>Chaque mois, les meilleures pratiques data, les outils à adopter et des retours d'expérience concrets — directement dans votre boîte mail.</p>
+        <div class="nl-perks">
+          <span class="nl-perk">Tutoriels data engineering & dbt</span>
+          <span class="nl-perk">Comparatifs outils & stack moderne</span>
+          <span class="nl-perk">Offres exclusives pour abonnés</span>
+          <span class="nl-perk">1 email par mois, pas de spam</span>
+        </div>
+      </div>
+      <div class="newsletter-form reveal">
+        <p class="nl-form-title">S'abonner aux insights DataBak</p>
+        <p class="nl-form-sub">// Gratuit · Sans spam · Désinscription en 1 clic</p>
+        <div class="nl-row">
+          <input class="nl-input" type="text" id="nl-name" placeholder="Votre prénom"/>
+        </div>
+        <div class="nl-row" style="margin-top:10px;">
+          <input class="nl-input" type="email" id="nl-email" placeholder="votre@email.fr"/>
+          <button class="nl-btn" onclick="subscribeNewsletter()">S'abonner →</button>
+        </div>
+        <p class="nl-notice">📩 En vous abonnant, vous acceptez de recevoir nos emails. Désinscription possible à tout moment.</p>
+        <div class="nl-success" id="nl-success">✓ Bienvenue ! Vous recevrez notre prochain insight data.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ SITEMAP ══ -->
 <section id="sitemap">
   <div class="wrap">
@@ -2671,6 +2845,40 @@ s0.parentNode.insertBefore(s1,s0);
 </div>
 
 <script>
+  // ── SPLASH SCREEN
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('splash').classList.add('hidden');
+    }, 1700);
+  });
+
+  // ── COOKIE BANNER
+  function closeCookie(accepted) {
+    document.getElementById('cookie-banner').classList.remove('show');
+    localStorage.setItem('cookie-consent', accepted ? 'accepted' : 'refused');
+  }
+  if (!localStorage.getItem('cookie-consent')) {
+    setTimeout(() => document.getElementById('cookie-banner').classList.add('show'), 2400);
+  }
+
+  // ── NEWSLETTER
+  async function subscribeNewsletter() {
+    const name  = document.getElementById('nl-name').value.trim();
+    const email = document.getElementById('nl-email').value.trim();
+    if (!email || !email.includes('@')) { alert('Merci d\'entrer un email valide.'); return; }
+    try {
+      await fetch('https://formspree.io/f/mjgzgwvj', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ _subject: 'Nouvel abonné newsletter DataBak', prenom: name, email, type: 'Newsletter' })
+      });
+    } catch(e) {}
+    document.getElementById('nl-success').style.display = 'block';
+    document.getElementById('nl-name').value = '';
+    document.getElementById('nl-email').value = '';
+    showToast('📩 Abonnement confirmé — à bientôt !');
+  }
+
   // ── THEME TOGGLE
   function toggleTheme() {
     const isLight = document.body.classList.toggle('light');
