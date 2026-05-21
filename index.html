@@ -1226,6 +1226,345 @@
     .typewriter-wrap { overflow: hidden; display: inline; }
     #typewriter-text { border-right: 2px solid var(--blue); padding-right: 3px; }
 
+    /* ══ AVAILABILITY BANNER ══ */
+    #avail-banner {
+      background: linear-gradient(90deg, #052e16, #064e3b, #052e16);
+      border-bottom: 1px solid rgba(52,211,153,0.2);
+      padding: 9px 20px;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .05em;
+      color: #6ee7b7;
+      position: relative;
+      z-index: 101;
+    }
+    #avail-banner a {
+      color: #34D399;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(52,211,153,0.3);
+      transition: border-color .2s;
+    }
+    #avail-banner a:hover { border-color: #34D399; }
+    #avail-banner .avail-dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      background: #34D399;
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: pulse 2s infinite;
+      vertical-align: middle;
+    }
+    #avail-close {
+      position: absolute; right: 16px; top: 50%;
+      transform: translateY(-50%);
+      background: none; border: none;
+      color: rgba(52,211,153,0.5);
+      cursor: pointer; font-size: 16px;
+      transition: color .2s;
+    }
+    #avail-close:hover { color: #34D399; }
+
+    /* ══ LIGHT MODE ══ */
+    body.light {
+      --bg:     #F8F7F4;
+      --bg2:    #FFFFFF;
+      --bg3:    #F0EFE9;
+      --border: rgba(0,0,0,0.08);
+      --border2:rgba(37,99,235,0.2);
+      --text:   #0F1117;
+      --muted:  #6B7280;
+      --glow:   rgba(37,99,235,0.08);
+    }
+    body.light nav { background: rgba(248,247,244,0.92); }
+    body.light body::before { background-image: linear-gradient(rgba(37,99,235,0.03) 1px,transparent 1px), linear-gradient(90deg,rgba(37,99,235,0.03) 1px,transparent 1px); }
+    body.light .terminal { background: #f0efe9; }
+    body.light .terminal-bar { background: #e4e2dc; }
+    body.light .terminal-body { color: #374151; }
+    body.light .t-out { color: #9CA3AF; }
+    body.light .t-prompt { color: var(--blue); }
+
+    /* ══ THEME TOGGLE ══ */
+    #theme-toggle {
+      background: none; border: 1px solid var(--border);
+      border-radius: 6px;
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 15px;
+      color: var(--muted);
+      transition: border-color .2s, background .2s;
+      flex-shrink: 0;
+    }
+    #theme-toggle:hover { border-color: var(--blue); background: var(--bg2); }
+
+    /* ══ LANG SWITCH ══ */
+    #lang-switch {
+      display: flex; align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 6px; overflow: hidden;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: none; border: none;
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--muted); cursor: pointer;
+      padding: 6px 10px;
+      transition: background .2s, color .2s;
+    }
+    .lang-btn.active { background: var(--blue); color: white; }
+    .lang-btn:not(.active):hover { background: var(--bg2); color: var(--text); }
+
+    /* ══ BURGER MENU ══ */
+    #burger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      background: none; border: none;
+      cursor: pointer; padding: 4px;
+    }
+    #burger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    #burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    #burger.open span:nth-child(2) { opacity: 0; }
+    #burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    #mobile-menu {
+      display: none;
+      position: fixed; inset: 0; top: 68px;
+      background: var(--bg);
+      z-index: 99;
+      flex-direction: column;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a {
+      font-family: var(--display);
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--text); text-decoration: none;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: -.02em;
+      transition: color .2s;
+    }
+    #mobile-menu a:hover { color: var(--blue); }
+    #mobile-menu .mob-cta {
+      margin-top: 28px;
+      background: var(--blue);
+      color: white !important;
+      text-align: center;
+      border-radius: 6px;
+      padding: 16px !important;
+      font-size: 1rem !important;
+      border-bottom: none !important;
+    }
+    @media (max-width: 800px) { #burger { display: flex; } }
+
+    /* ══ PRICING ══ */
+    #pricing { background: var(--bg2); }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .pcard {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 30px;
+      position: relative;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+      display: flex; flex-direction: column;
+    }
+    .pcard:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.2); }
+    .pcard.featured {
+      border-color: var(--blue);
+      background: var(--bg2);
+      box-shadow: 0 0 40px rgba(59,130,246,0.12);
+    }
+    .pcard-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--blue);
+      color: white;
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 100px;
+      white-space: nowrap;
+    }
+    .pcard-tier {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 14px;
+    }
+    .pcard-price {
+      font-family: var(--display);
+      font-size: 2.4rem; font-weight: 800;
+      letter-spacing: -.04em; line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pcard-price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
+    .pcard-desc { color: var(--muted); font-size: 13px; font-weight: 300; margin-bottom: 24px; line-height: 1.6; }
+    .pcard-divider { height: 1px; background: var(--border); margin-bottom: 22px; }
+    .pcard-features { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; margin-bottom: 28px; }
+    .pcard-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 13.5px; color: var(--muted); font-weight: 300;
+    }
+    .pcard-features li::before { content: '✓'; color: #34D399; font-size: 12px; margin-top: 2px; flex-shrink: 0; }
+    .pcard-features li.no { color: #4B5563; }
+    .pcard-features li.no::before { content: '×'; color: #4B5563; }
+    .pcard-cta {
+      display: block; text-align: center;
+      padding: 12px;
+      border-radius: 6px;
+      font-family: var(--mono); font-size: 12px;
+      font-weight: 500; letter-spacing: .07em;
+      text-transform: uppercase; text-decoration: none;
+      transition: all .2s;
+    }
+    .pcard-cta.outline {
+      border: 1px solid var(--border); color: var(--muted);
+    }
+    .pcard-cta.outline:hover { border-color: var(--blue); color: var(--blue); }
+    .pcard-cta.solid { background: var(--blue); color: white; }
+    .pcard-cta.solid:hover { background: var(--blue2); box-shadow: 0 0 20px rgba(59,130,246,0.3); }
+    .pricing-note {
+      text-align: center; margin-top: 28px;
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      letter-spacing: .04em;
+    }
+    @media (max-width: 800px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+    /* ══ BLOG ══ */
+    #blog { }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .bcard {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color .25s, box-shadow .25s, transform .25s;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+    }
+    .bcard:hover { border-color: rgba(96,165,250,0.25); box-shadow: 0 8px 32px rgba(0,0,0,0.15); transform: translateY(-3px); }
+    .bcard-img {
+      height: 140px;
+      background: linear-gradient(135deg, var(--bg3), var(--bg));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .bcard-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(6,182,212,0.05));
+    }
+    .bcard-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .bcard-meta {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px;
+    }
+    .bcard-tag {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--blue); background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.15);
+      padding: 3px 8px; border-radius: 3px;
+    }
+    .bcard-date { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+    .bcard-body h3 {
+      font-family: var(--display); font-size: 15px; font-weight: 700;
+      letter-spacing: -.01em; margin-bottom: 8px; line-height: 1.35;
+    }
+    .bcard-body p { color: var(--muted); font-size: 13px; font-weight: 300; line-height: 1.7; flex: 1; }
+    .bcard-read {
+      margin-top: 18px;
+      font-family: var(--mono); font-size: 11px;
+      color: var(--blue2); letter-spacing: .04em;
+    }
+    .blog-cta-wrap { text-align: center; margin-top: 36px; }
+
+    /* ══ TRUST BADGE ══ */
+    .trust-badge {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 24px;
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: rgba(52,211,153,0.04);
+      border: 1px solid rgba(52,211,153,0.15);
+      border-radius: 8px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 11px;
+      color: #6ee7b7; letter-spacing: .04em;
+    }
+    .trust-item::before { content: '✓'; color: #34D399; font-weight: 700; }
+
+    /* ══ TOAST ══ */
+    #toast {
+      position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px);
+      z-index: 9999;
+      background: var(--bg2);
+      border: 1px solid rgba(52,211,153,0.3);
+      border-radius: 8px;
+      padding: 14px 24px;
+      display: flex; align-items: center; gap: 12px;
+      font-family: var(--mono); font-size: 12px; color: #34D399;
+      letter-spacing: .04em;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      transition: transform .4s cubic-bezier(.34,1.56,.64,1), opacity .4s;
+      opacity: 0; pointer-events: none;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .toast-icon { font-size: 18px; }
+
+    /* ══ SITEMAP ══ */
+    #sitemap { background: var(--bg2); padding: 60px 0; }
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .sitemap-col h4 {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 16px;
+    }
+    .sitemap-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .sitemap-col a {
+      font-size: 13px; color: var(--muted); text-decoration: none;
+      transition: color .2s; display: flex; align-items: center; gap: 7px;
+    }
+    .sitemap-col a::before { content: '→'; font-size: 11px; color: var(--blue); opacity: .5; }
+    .sitemap-col a:hover { color: var(--blue2); }
+    @media (max-width: 800px) { .sitemap-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* ══ CALENDLY BTN ══ */
+    .calendly-btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(6,182,212,0.08);
+      border: 1px solid rgba(6,182,212,0.25);
+      color: var(--cyan) !important;
+      font-family: var(--mono); font-size: 12px;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 11px 20px; border-radius: 6px;
+      text-decoration: none; cursor: pointer;
+      transition: background .2s, box-shadow .2s;
+      margin-top: 16px;
+    }
+    .calendly-btn:hover { background: rgba(6,182,212,0.14); box-shadow: 0 0 20px rgba(6,182,212,0.15); }
+
     /* ══ ANIMATIONS ══ */
     .reveal {
       opacity: 0;
@@ -1300,8 +1639,37 @@
       .process-steps { grid-template-columns: 1fr; }
     }
   </style>
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DataBak",
+    "description": "Agence data full-service basée à Paris. Pipelines, data engineering, analytics, BI et Data Science.",
+    "url": "https://mehdibakloutii.github.io/databak-website/",
+    "email": "mehdibakloutipro@gmail.com",
+    "founder": { "@type": "Person", "name": "M. Baklouti" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
+    "serviceType": ["Data Engineering", "Data Analytics", "Business Intelligence", "Data Science", "Cloud Infrastructure"],
+    "areaServed": "France",
+    "sameAs": [
+      "https://www.linkedin.com/in/mehdi-baklouti-9a8a4795/",
+      "https://github.com/mehdibakloutii"
+    ]
+  }
+  </script>
+  <!-- Plausible Analytics (RGPD-friendly, sans cookies) -->
+  <!-- <script defer data-domain="votredomaine.fr" src="https://plausible.io/js/script.js"></script> -->
 </head>
 <body>
+
+<!-- AVAILABILITY BANNER -->
+<div id="avail-banner">
+  <span class="avail-dot"></span>
+  M. Baklouti est <strong>disponible pour missions</strong> — Démarrage possible sous 72h &nbsp;·&nbsp;
+  <a href="#contact">Démarrer un projet →</a>
+  <button id="avail-close" onclick="this.parentElement.remove()">×</button>
+</div>
 
 <!-- PROGRESS BAR -->
 <div id="progress-bar"></div>
@@ -1319,13 +1687,34 @@
 <nav>
   <a href="#hero" class="nav-logo">Data<span>Bak</span></a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#stack">Stack</a></li>
-    <li><a href="#about">À propos</a></li>
+    <li><a href="#services" class="nav-i18n" data-fr="Services" data-en="Services">Services</a></li>
+    <li><a href="#pricing" class="nav-i18n" data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
+    <li><a href="#stack" class="nav-i18n" data-fr="Stack" data-en="Stack">Stack</a></li>
+    <li><a href="#about" class="nav-i18n" data-fr="À propos" data-en="About">À propos</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact" class="nav-cta">Démarrer un projet</a></li>
   </ul>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div id="lang-switch">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <button id="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+    <a href="#contact" class="nav-cta nav-i18n" data-fr="Démarrer un projet" data-en="Start a project">Démarrer un projet</a>
+    <button id="burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#pricing" onclick="toggleMenu()">Tarifs</a>
+  <a href="#stack" onclick="toggleMenu()">Stack</a>
+  <a href="#about" onclick="toggleMenu()">À propos</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#contact" onclick="toggleMenu()" class="mob-cta">Démarrer un projet →</a>
+</div>
 
 <!-- ══ HERO ══ -->
 <section id="hero">
@@ -1856,6 +2245,118 @@
   </div>
 </section>
 
+<!-- ══ PRICING ══ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">Tarifs</p>
+      <h2>Des formules claires</h2>
+      <p class="sub">Pas de surprise. Des engagements adaptés à chaque étape de votre projet data.</p>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="pcard">
+        <div class="pcard-tier">Starter</div>
+        <div class="pcard-price">1 500 €<span> / semaine</span></div>
+        <p class="pcard-desc">Pour un audit rapide ou un POC data. Idéal pour valider une idée avant d'investir.</p>
+        <div class="pcard-divider"></div>
+        <ul class="pcard-features">
+          <li>Audit de votre infrastructure data</li>
+          <li>POC pipeline ou dashboard</li>
+          <li>Rapport de recommandations</li>
+          <li>1 session de restitution (1h)</li>
+          <li class="no">Développement complet</li>
+          <li class="no">Support post-livraison</li>
+        </ul>
+        <a href="#contact" class="pcard-cta outline">Démarrer →</a>
+      </div>
+      <div class="pcard featured">
+        <div class="pcard-badge">⭐ Le plus populaire</div>
+        <div class="pcard-tier">Pro</div>
+        <div class="pcard-price">600 €<span> / jour (TJM)</span></div>
+        <p class="pcard-desc">Mission freelance en régie. Build complet, suivi hebdo, code documenté livré.</p>
+        <div class="pcard-divider"></div>
+        <ul class="pcard-features">
+          <li>Pipeline ELT/ETL complet</li>
+          <li>Modélisation dbt + tests qualité</li>
+          <li>Dashboard BI interactif</li>
+          <li>Déploiement cloud (GCP / AWS)</li>
+          <li>Documentation technique complète</li>
+          <li>Support 30 jours post-livraison</li>
+        </ul>
+        <a href="#contact" class="pcard-cta solid">Démarrer →</a>
+      </div>
+      <div class="pcard">
+        <div class="pcard-tier">Enterprise</div>
+        <div class="pcard-price">Sur devis</div>
+        <p class="pcard-desc">Projet complexe, équipe à former, architecture from scratch ou engagement long terme.</p>
+        <div class="pcard-divider"></div>
+        <ul class="pcard-features">
+          <li>Architecture data complète</li>
+          <li>Data platform from scratch</li>
+          <li>Formation équipes internes</li>
+          <li>Gouvernance & RGPD</li>
+          <li>SLA personnalisé</li>
+          <li>Account manager dédié</li>
+        </ul>
+        <a href="#contact" class="pcard-cta outline">Nous contacter →</a>
+      </div>
+    </div>
+    <p class="pricing-note">💡 Tous les tarifs sont HT · TVA applicable selon statut · Devis personnalisé sur demande</p>
+  </div>
+</section>
+
+<!-- ══ BLOG ══ -->
+<section id="blog">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">Insights</p>
+      <h2>Le blog DataBak</h2>
+      <p class="sub">Bonnes pratiques, tutoriels et retours d'expérience sur l'écosystème data moderne.</p>
+    </div>
+    <div class="blog-grid reveal">
+      <a href="#blog" class="bcard">
+        <div class="bcard-img">⚙️</div>
+        <div class="bcard-body">
+          <div class="bcard-meta">
+            <span class="bcard-tag">Data Engineering</span>
+            <span class="bcard-date">Mai 2025</span>
+          </div>
+          <h3>Comment construire un pipeline dbt robuste sur BigQuery</h3>
+          <p>Guide complet pour structurer vos modèles dbt, gérer les dépendances et mettre en place des tests de qualité automatiques.</p>
+          <div class="bcard-read">Lire l'article →</div>
+        </div>
+      </a>
+      <a href="#blog" class="bcard">
+        <div class="bcard-img">🔄</div>
+        <div class="bcard-body">
+          <div class="bcard-meta">
+            <span class="bcard-tag">Architecture</span>
+            <span class="bcard-date">Avr. 2025</span>
+          </div>
+          <h3>ETL vs ELT en 2025 : lequel choisir pour votre projet ?</h3>
+          <p>Comparaison détaillée des deux approches, cas d'usage concrets et recommandations selon votre stack et volume de données.</p>
+          <div class="bcard-read">Lire l'article →</div>
+        </div>
+      </a>
+      <a href="#blog" class="bcard">
+        <div class="bcard-img">☁️</div>
+        <div class="bcard-body">
+          <div class="bcard-meta">
+            <span class="bcard-tag">Cloud</span>
+            <span class="bcard-date">Mar. 2025</span>
+          </div>
+          <h3>Modern Data Stack 2025 : le guide complet pour les PME</h3>
+          <p>Quels outils adopter pour construire une infrastructure data moderne sans exploser votre budget ? Notre sélection commentée.</p>
+          <div class="bcard-read">Lire l'article →</div>
+        </div>
+      </a>
+    </div>
+    <div class="blog-cta-wrap reveal">
+      <a href="#blog" class="btn-ghost">Voir tous les articles →</a>
+    </div>
+  </div>
+</section>
+
 <!-- ══ FAQ ══ -->
 <section id="faq">
   <div class="wrap">
@@ -1941,6 +2442,9 @@
             Paris, Île-de-France
           </a>
         </div>
+        <a href="https://calendly.com" target="_blank" class="calendly-btn">
+          📅 Réserver un appel de 30 min
+        </a>
       </div>
       <div class="cform">
         <p class="cform-title">Formulaire de demande</p>
@@ -2003,10 +2507,85 @@
         <div id="error-banner" style="display:none;margin-top:14px;padding:12px 16px;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.25);border-radius:4px;font-family:var(--mono);font-size:12px;color:#F87171;text-align:center;letter-spacing:.04em;">
           ✗ ERREUR — Veuillez réessayer ou contacter mehdibakloutipro@gmail.com
         </div>
+        <div class="trust-badge">
+          <span class="trust-item">Réponse sous 24h garantie</span>
+          <span class="trust-item">100% remote possible</span>
+          <span class="trust-item">Code livré documenté</span>
+          <span class="trust-item">Devis gratuit</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ══ SITEMAP ══ -->
+<section id="sitemap">
+  <div class="wrap">
+    <p class="label" style="margin-bottom:28px;">Plan du site</p>
+    <div class="sitemap-grid">
+      <div class="sitemap-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Data Engineering</a></li>
+          <li><a href="#services">Analytics & BI</a></li>
+          <li><a href="#services">Data Science & ML</a></li>
+          <li><a href="#services">Cloud & Infrastructure</a></li>
+          <li><a href="#services">Data Governance</a></li>
+          <li><a href="#services">Conseil & Formation</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
+        <h4>Agence</h4>
+        <ul>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#process">Notre méthode</a></li>
+          <li><a href="#why">Pourquoi DataBak</a></li>
+          <li><a href="#stack">Stack technique</a></li>
+          <li><a href="#cases">Cas clients</a></li>
+          <li><a href="#testimonials">Témoignages</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="#pricing">Tarifs</a></li>
+          <li><a href="#blog">Blog & Insights</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#clients">Clients</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#contact">Formulaire de demande</a></li>
+          <li><a href="mailto:mehdibakloutipro@gmail.com">Email direct</a></li>
+          <li><a href="https://www.linkedin.com/in/mehdi-baklouti-9a8a4795/" target="_blank">LinkedIn</a></li>
+          <li><a href="https://github.com/mehdibakloutii" target="_blank">GitHub</a></li>
+          <li><a href="#" onclick="document.getElementById('modal-ml').classList.add('open');return false;">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOAST -->
+<div id="toast">
+  <span class="toast-icon">✅</span>
+  <span id="toast-msg">Demande envoyée — réponse sous 24h !</span>
+</div>
+
+<!-- TAWK.TO Chat widget (décommentez et remplacez YOUR_ID après inscription sur tawk.to) -->
+<!--
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true; s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+-->
 
 <!-- FOOTER -->
 <footer>
@@ -2092,6 +2671,105 @@
 </div>
 
 <script>
+  // ── THEME TOGGLE
+  function toggleTheme() {
+    const isLight = document.body.classList.toggle('light');
+    document.getElementById('theme-toggle').textContent = isLight ? '🌙' : '☀️';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  }
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light');
+    document.getElementById('theme-toggle').textContent = '🌙';
+  }
+
+  // ── BURGER MENU
+  function toggleMenu() {
+    document.getElementById('burger').classList.toggle('open');
+    document.getElementById('mobile-menu').classList.toggle('open');
+    document.body.style.overflow = document.getElementById('mobile-menu').classList.contains('open') ? 'hidden' : '';
+  }
+
+  // ── LANG SWITCH
+  const i18n = {
+    fr: {
+      'hero-tag': 'Agence Data Full-Service · Paris',
+      'hero-h1': 'Transformer<br>votre <span class="accent">data</span><br>en <span class="stroke"><span id="typewriter-text"></span></span>',
+      'hero-desc': 'DataBak conçoit, déploie et maintient vos infrastructures data — pipelines, warehouses, dashboards et modèles ML — pour que chaque décision soit guidée par la donnée.',
+      'btn-start': 'Démarrer un projet →',
+      'btn-services': 'Voir nos services',
+    },
+    en: {
+      'hero-tag': 'Full-Service Data Agency · Paris',
+      'hero-desc': 'DataBak designs, deploys and maintains your data infrastructure — pipelines, warehouses, dashboards and ML models — so every decision is data-driven.',
+      'btn-start': 'Start a project →',
+      'btn-services': 'Our services',
+    }
+  };
+  let currentLang = 'fr';
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+    document.querySelectorAll('.nav-i18n').forEach(el => {
+      if (el.dataset[lang]) el.textContent = el.dataset[lang];
+    });
+    const t = i18n[lang];
+    if (document.querySelector('.hero-tag')) document.querySelector('.hero-tag').innerHTML = '<span class="blink">█</span> ' + t['hero-tag'];
+    if (document.querySelector('.hero-desc')) document.querySelector('.hero-desc').textContent = t['hero-desc'];
+    document.querySelector('.hero-actions .btn-primary').textContent = t['btn-start'];
+    document.querySelector('.hero-actions .btn-ghost').textContent = t['btn-services'];
+  }
+
+  // ── TOAST
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    document.getElementById('toast-msg').textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  // ── FORM — Formspree with toast
+  async function submitForm() {
+    const req = ['f-prenom','f-nom','f-email','f-type','f-msg'];
+    if (req.some(id => !document.getElementById(id).value.trim())) {
+      alert('Merci de remplir tous les champs obligatoires (*).');
+      return;
+    }
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Envoi en cours…';
+    btn.disabled = true;
+    const data = {
+      prenom: document.getElementById('f-prenom').value,
+      nom: document.getElementById('f-nom').value,
+      email: document.getElementById('f-email').value,
+      societe: document.getElementById('f-soc').value,
+      telephone: document.getElementById('f-tel').value,
+      prestation: document.getElementById('f-type').value,
+      budget: document.getElementById('f-budget').value,
+      message: document.getElementById('f-msg').value,
+    };
+    try {
+      const res = await fetch('https://formspree.io/f/mjgzgwvj', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        document.getElementById('success-banner').style.display = 'block';
+        document.getElementById('error-banner').style.display = 'none';
+        showToast('✅ Demande envoyée — réponse sous 24h !');
+        ['f-prenom','f-nom','f-email','f-soc','f-tel','f-msg'].forEach(id => document.getElementById(id).value = '');
+        document.getElementById('f-type').value = '';
+        document.getElementById('f-budget').value = '';
+        btn.textContent = 'Demande envoyée ✓';
+      } else { throw new Error(); }
+    } catch {
+      document.getElementById('error-banner').style.display = 'block';
+      showToast('❌ Erreur — réessayez ou écrivez directement par email.');
+      btn.textContent = 'Envoyer la demande →';
+      btn.disabled = false;
+    }
+  }
+
   // ── TYPEWRITER
   const words = ['valeur', 'décisions', 'avantage', 'croissance'];
   let wi = 0, ci = 0, deleting = false;
@@ -2116,7 +2794,7 @@
     progressBar.style.width = (window.scrollY / total * 100) + '%';
   }, { passive: true });
 
-  // ── CTA FLOTTANT & BACK TO TOP (show after 400px scroll)
+  // ── CTA FLOTTANT & BACK TO TOP
   const ctaFloat = document.getElementById('cta-float');
   const backTop  = document.getElementById('back-top');
   window.addEventListener('scroll', () => {
@@ -2125,7 +2803,7 @@
     backTop.classList.toggle('visible', show);
   }, { passive: true });
 
-  // ── EXIT POPUP (trigger once when mouse leaves window at top)
+  // ── EXIT POPUP
   let exitShown = false;
   document.addEventListener('mouseleave', e => {
     if (e.clientY < 10 && !exitShown) {
@@ -2134,7 +2812,7 @@
     }
   });
 
-  // Animated counters
+  // ── ANIMATED COUNTERS
   function animateCounter(el) {
     const target = parseInt(el.dataset.target);
     const suffix = el.dataset.suffix || '';
@@ -2143,24 +2821,18 @@
     let current = 0;
     const timer = setInterval(() => {
       current += step;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
+      if (current >= target) { current = target; clearInterval(timer); }
       el.textContent = Math.floor(current) + suffix;
     }, 16);
   }
   const counterObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        animateCounter(e.target);
-        counterObs.unobserve(e.target);
-      }
+      if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('.counter-num').forEach(el => counterObs.observe(el));
 
-  // FAQ accordion
+  // ── FAQ ACCORDION
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');
@@ -2168,57 +2840,12 @@
     if (!isOpen) item.classList.add('open');
   }
 
-  // Scroll reveal
+  // ── SCROLL REVEAL
   const obs = new IntersectionObserver(
     entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
     { threshold: 0.08 }
   );
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  // Form — Formspree
-  async function submitForm() {
-    const req = ['f-prenom','f-nom','f-email','f-type','f-msg'];
-    if (req.some(id => !document.getElementById(id).value.trim())) {
-      alert('Merci de remplir tous les champs obligatoires (*).');
-      return;
-    }
-    const btn = document.getElementById('submit-btn');
-    btn.textContent = 'Envoi en cours…';
-    btn.disabled = true;
-
-    const data = {
-      prenom:    document.getElementById('f-prenom').value,
-      nom:       document.getElementById('f-nom').value,
-      email:     document.getElementById('f-email').value,
-      societe:   document.getElementById('f-soc').value,
-      telephone: document.getElementById('f-tel').value,
-      prestation:document.getElementById('f-type').value,
-      budget:    document.getElementById('f-budget').value,
-      message:   document.getElementById('f-msg').value,
-    };
-
-    try {
-      const res = await fetch('https://formspree.io/f/mjgzgwvj', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      if (res.ok) {
-        document.getElementById('success-banner').style.display = 'block';
-        document.getElementById('error-banner').style.display = 'none';
-        ['f-prenom','f-nom','f-email','f-soc','f-tel','f-msg'].forEach(id => document.getElementById(id).value = '');
-        document.getElementById('f-type').value = '';
-        document.getElementById('f-budget').value = '';
-        btn.textContent = 'Demande envoyée ✓';
-      } else {
-        throw new Error('Erreur serveur');
-      }
-    } catch {
-      document.getElementById('error-banner').style.display = 'block';
-      btn.textContent = 'Envoyer la demande →';
-      btn.disabled = false;
-    }
-  }
 </script>
 </body>
 </html>
