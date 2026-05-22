@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DataBak — Agence Data & Engineering Paris</title>
-  <meta name="description" content="DataBak est une agence data full-service basée à Paris. Pipelines, data engineering, analytics, BI, Data Science et cloud — nous transformons vos données en valeur métier."/>
-  <meta name="keywords" content="agence data paris, data engineering, ETL pipeline, dbt, BigQuery, freelance data, data science, BI dashboard, consultant data france"/>
+  <title>DataBak — Consultant Data Freelance Paris | Tableau de bord Power BI · Pipeline Python · Expert SQL</title>
+  <meta name="description" content="DataBak, consultant data freelance à Paris. Création de tableaux de bord Power BI, pipelines Python, optimisation base de données SQL, scraping de données et automatisation de rapports. Devis gratuit sous 24h."/>
+  <meta name="keywords" content="consultant data freelance paris, création tableau de bord power bi, expert sql optimisation base de données, pipeline python data engineering, scraping données python, automatisation rapports excel python, agence data paris, freelance data engineer, dbt bigquery snowflake, data analyst freelance, ingénieur données paris, etl pipeline freelance"/>
   <meta name="author" content="M. Baklouti"/>
   <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://mehdibakloutii.github.io/databak-website/"/>
+  <link rel="canonical" href="https://mehdibakloutii.github.io/databak-website/index.html"/>
   <!-- Open Graph -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="DataBak — Agence Data Full-Service Paris"/>
-  <meta property="og:description" content="Pipelines, data engineering, analytics et BI. DataBak transforme vos données en avantage compétitif."/>
-  <meta property="og:url" content="https://mehdibakloutii.github.io/databak-website/"/>
+  <meta property="og:title" content="DataBak — Consultant Data Freelance Paris | Power BI · Python · SQL"/>
+  <meta property="og:description" content="Tableaux de bord Power BI, pipelines Python, optimisation SQL, scraping de données. DataBak transforme vos données en décisions. Devis gratuit sous 24h."/>
+  <meta property="og:url" content="https://mehdibakloutii.github.io/databak-website/index.html"/>
   <meta property="og:site_name" content="DataBak"/>
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="DataBak — Agence Data Full-Service Paris"/>
-  <meta name="twitter:description" content="Pipelines, data engineering, analytics et BI. DataBak transforme vos données en avantage compétitif."/>
+  <meta name="twitter:title" content="DataBak — Consultant Data Freelance Paris"/>
+  <meta name="twitter:description" content="Tableaux de bord Power BI, pipelines Python, optimisation SQL. Devis gratuit sous 24h."/>
   <!-- Favicon SVG inline -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080B10'/%3E%3Crect x='2' y='2' width='28' height='28' rx='5' fill='none' stroke='%233B82F6' stroke-width='1'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='14' fill='%233B82F6'%3EDB%3C/text%3E%3C/svg%3E"/>
   <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080B10'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='14' fill='%233B82F6'%3EDB%3C/text%3E%3C/svg%3E"/>
@@ -1446,9 +1446,11 @@
     #blog { }
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
+    @media (max-width: 1000px) { .blog-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
     .bcard {
       background: var(--bg2);
       border: 1px solid var(--border);
@@ -1867,19 +1869,18 @@
       <div>
         <div class="hero-tag">
           <span class="blink">█</span>
-          Agence Data Full-Service · Paris
+          Consultant Data Freelance · Paris · Remote OK
         </div>
         <h1>
-          Transformer<br>
-          votre <span class="accent">data</span><br>
-          en <span class="stroke"><span id="typewriter-text"></span></span>
+          Votre <span class="accent">expert data</span><br>
+          pour des <span class="stroke"><span id="typewriter-text"></span></span>
         </h1>
         <p class="hero-desc">
-          DataBak conçoit, déploie et maintient vos infrastructures data — pipelines, warehouses, dashboards et modèles ML — pour que chaque décision soit guidée par la donnée.
+          Tableaux de bord <strong style="color:var(--text)">Power BI</strong>, pipelines <strong style="color:var(--text)">Python</strong>, optimisation <strong style="color:var(--text)">SQL</strong>, scraping de données, automatisation de rapports — DataBak transforme vos données brutes en décisions rentables.
         </p>
         <div class="hero-actions">
-          <a href="#contact" class="btn-primary">Démarrer un projet →</a>
-          <a href="#services" class="btn-ghost">Voir nos services</a>
+          <a href="#contact" class="btn-primary">📅 Prendre un rendez-vous gratuit</a>
+          <a href="#services" class="btn-ghost">Découvrir nos services</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -1951,15 +1952,15 @@
   <div class="wrap">
     <div class="reveal">
       <p class="label">Services</p>
-      <h2>Ce que nous construisons</h2>
-      <p class="sub">De la collecte brute à la décision éclairée — nous couvrons l'intégralité de la chaîne data.</p>
+      <h2>Consultant Data Freelance — nos prestations</h2>
+      <p class="sub">De la collecte brute à la décision éclairée — pipelines Python, tableaux de bord Power BI, optimisation SQL et bien plus.</p>
     </div>
     <div class="services-grid reveal">
       <div class="scard">
         <div class="scard-num">01</div>
         <span class="scard-icon">⚙️</span>
-        <h3>Data Engineering</h3>
-        <p>Conception et déploiement de pipelines robustes (ELT/ETL), intégration de sources hétérogènes et mise en place de warehouses scalables.</p>
+        <h3>Pipeline de données Python & ETL</h3>
+        <p>Conception et déploiement de pipelines robustes (ELT/ETL) en Python, intégration de sources hétérogènes et mise en place de warehouses scalables.</p>
         <div class="scard-tags">
           <span class="stag">Python</span><span class="stag">dbt</span>
           <span class="stag">Airflow</span><span class="stag">Spark</span>
@@ -1969,53 +1970,54 @@
       <div class="scard">
         <div class="scard-num">02</div>
         <span class="scard-icon">📊</span>
-        <h3>Analytics & BI</h3>
-        <p>Modélisation analytique, KPIs métier, dashboards interactifs et self-service BI pour que vos équipes pilotent par la data.</p>
+        <h3>Création Tableau de Bord Power BI</h3>
+        <p>Tableaux de bord interactifs Power BI, Looker Studio et Metabase. KPIs métier, self-service BI et reporting automatisé pour piloter votre activité.</p>
         <div class="scard-tags">
-          <span class="stag">Looker</span><span class="stag">Power BI</span>
+          <span class="stag">Power BI</span><span class="stag">Looker Studio</span>
           <span class="stag">Metabase</span><span class="stag">SQL</span>
           <span class="stag">dbt metrics</span>
         </div>
       </div>
       <div class="scard">
         <div class="scard-num">03</div>
+        <span class="scard-icon">🕷️</span>
+        <h3>Scraping de Données & Automatisation</h3>
+        <p>Collecte automatisée de données web, automatisation de rapports Excel/Python et intégration d'APIs tierces pour alimenter vos systèmes en temps réel.</p>
+        <div class="scard-tags">
+          <span class="stag">Python</span><span class="stag">Scrapy</span>
+          <span class="stag">Selenium</span><span class="stag">APIs REST</span>
+          <span class="stag">Excel</span>
+        </div>
+      </div>
+      <div class="scard">
+        <div class="scard-num">04</div>
+        <span class="scard-icon">🔍</span>
+        <h3>Optimisation Base de Données SQL</h3>
+        <p>Audit, optimisation de requêtes SQL, modélisation de schémas performants et migration de bases de données. PostgreSQL, MySQL, BigQuery, Snowflake.</p>
+        <div class="scard-tags">
+          <span class="stag">PostgreSQL</span><span class="stag">MySQL</span>
+          <span class="stag">BigQuery</span><span class="stag">Snowflake</span>
+          <span class="stag">Optimisation</span>
+        </div>
+      </div>
+      <div class="scard">
+        <div class="scard-num">05</div>
         <span class="scard-icon">🤖</span>
-        <h3>Data Science & ML</h3>
-        <p>Modèles prédictifs, scoring, NLP et mise en production de modèles ML via des APIs robustes et monitored.</p>
+        <h3>Data Science & Modèles Prédictifs</h3>
+        <p>Modèles prédictifs, scoring client, NLP et mise en production de modèles ML via des APIs robustes. Transformez vos données en avantage compétitif.</p>
         <div class="scard-tags">
           <span class="stag">Scikit-learn</span><span class="stag">MLflow</span>
           <span class="stag">FastAPI</span><span class="stag">Vertex AI</span>
         </div>
       </div>
       <div class="scard">
-        <div class="scard-num">04</div>
-        <span class="scard-icon">☁️</span>
-        <h3>Cloud & Infrastructure</h3>
-        <p>Architecture cloud-native (GCP, AWS), containerisation, IaC et mise en place de pratiques DataOps & DevOps solides.</p>
-        <div class="scard-tags">
-          <span class="stag">GCP</span><span class="stag">AWS</span>
-          <span class="stag">Docker</span><span class="stag">Terraform</span>
-          <span class="stag">GitHub Actions</span>
-        </div>
-      </div>
-      <div class="scard">
-        <div class="scard-num">05</div>
-        <span class="scard-icon">🔒</span>
-        <h3>Data Governance</h3>
-        <p>Catalogue de données, lineage, gestion de la qualité et conformité RGPD pour fiabiliser votre patrimoine data.</p>
-        <div class="scard-tags">
-          <span class="stag">Great Expectations</span>
-          <span class="stag">DataHub</span><span class="stag">RGPD</span>
-        </div>
-      </div>
-      <div class="scard">
         <div class="scard-num">06</div>
         <span class="scard-icon">🎓</span>
-        <h3>Conseil & Formation</h3>
-        <p>Audit de maturité data, roadmap stratégique et formation de vos équipes aux outils et bonnes pratiques modernes.</p>
+        <h3>Audit Data & Conseil Stratégique</h3>
+        <p>Audit de maturité data pour PME et startups, roadmap stratégique et formation de vos équipes. Identifiez les données qui vous font perdre de l'argent.</p>
         <div class="scard-tags">
-          <span class="stag">Audit</span><span class="stag">Roadmap</span>
-          <span class="stag">Workshop</span><span class="stag">Coaching</span>
+          <span class="stag">Audit</span><span class="stag">PME</span>
+          <span class="stag">Roadmap</span><span class="stag">Formation</span>
         </div>
       </div>
     </div>
@@ -2469,27 +2471,75 @@
         </div>
       </a>
       <a href="#blog" class="bcard">
+        <div class="bcard-img">⚙️</div>
+        <div class="bcard-body">
+          <div class="bcard-meta">
+            <span class="bcard-tag">Data Engineering</span>
+            <span class="bcard-date">Mai 2025</span>
+          </div>
+          <h3>Comment automatiser vos rapports de ventes avec Python et Excel</h3>
+          <p>Fini les copier-coller manuels chaque lundi matin. Découvrez comment un script Python de 50 lignes peut générer automatiquement vos rapports Excel et les envoyer par email — sans aucune intervention humaine.</p>
+          <div class="bcard-read">5 min · Lire l'article →</div>
+        </div>
+      </a>
+      <a href="#blog" class="bcard">
+        <div class="bcard-img">💸</div>
+        <div class="bcard-body">
+          <div class="bcard-meta">
+            <span class="bcard-tag">PME & Data</span>
+            <span class="bcard-date">Avr. 2025</span>
+          </div>
+          <h3>3 erreurs de données qui font perdre de l'argent aux PME</h3>
+          <p>Doublons clients, stocks mal valorisés, KPIs calculés à la main… Ces trois erreurs data coûtent en moyenne 15% du chiffre d'affaires aux PME françaises. Comment les identifier et les corriger.</p>
+          <div class="bcard-read">4 min · Lire l'article →</div>
+        </div>
+      </a>
+      <a href="#blog" class="bcard">
+        <div class="bcard-img">📊</div>
+        <div class="bcard-body">
+          <div class="bcard-meta">
+            <span class="bcard-tag">Power BI</span>
+            <span class="bcard-date">Mar. 2025</span>
+          </div>
+          <h3>Créer un tableau de bord Power BI professionnel en 1 journée</h3>
+          <p>Guide pas-à-pas pour connecter vos sources de données, modéliser vos KPIs et publier un dashboard Power BI interactif — même sans expérience préalable en BI.</p>
+          <div class="bcard-read">7 min · Lire l'article →</div>
+        </div>
+      </a>
+      <a href="#blog" class="bcard">
         <div class="bcard-img">🔄</div>
         <div class="bcard-body">
           <div class="bcard-meta">
             <span class="bcard-tag">Architecture</span>
-            <span class="bcard-date">Avr. 2025</span>
+            <span class="bcard-date">Fév. 2025</span>
           </div>
-          <h3>ETL vs ELT en 2025 : lequel choisir pour votre projet ?</h3>
-          <p>Comparaison détaillée des deux approches, cas d'usage concrets et recommandations selon votre stack et volume de données.</p>
-          <div class="bcard-read">Lire l'article →</div>
+          <h3>ETL vs ELT en 2025 : lequel choisir pour votre projet data ?</h3>
+          <p>Comparaison complète des deux approches, cas d'usage concrets, avantages et limites. Notre recommandation selon votre taille d'entreprise et votre volume de données.</p>
+          <div class="bcard-read">6 min · Lire l'article →</div>
         </div>
       </a>
       <a href="#blog" class="bcard">
-        <div class="bcard-img">☁️</div>
+        <div class="bcard-img">🕷️</div>
         <div class="bcard-body">
           <div class="bcard-meta">
-            <span class="bcard-tag">Cloud</span>
-            <span class="bcard-date">Mar. 2025</span>
+            <span class="bcard-tag">Scraping</span>
+            <span class="bcard-date">Jan. 2025</span>
           </div>
-          <h3>Modern Data Stack 2025 : le guide complet pour les PME</h3>
-          <p>Quels outils adopter pour construire une infrastructure data moderne sans exploser votre budget ? Notre sélection commentée.</p>
-          <div class="bcard-read">Lire l'article →</div>
+          <h3>Scraping de données en Python : guide complet pour débutants</h3>
+          <p>Comment extraire automatiquement des données depuis le web avec Python, BeautifulSoup et Scrapy. Exemples concrets : prix concurrents, avis clients, données marchés.</p>
+          <div class="bcard-read">8 min · Lire l'article →</div>
+        </div>
+      </a>
+      <a href="#blog" class="bcard">
+        <div class="bcard-img">🗄️</div>
+        <div class="bcard-body">
+          <div class="bcard-meta">
+            <span class="bcard-tag">SQL</span>
+            <span class="bcard-date">Déc. 2024</span>
+          </div>
+          <h3>Optimiser ses requêtes SQL : 10 techniques pour multiplier les performances par 10</h3>
+          <p>Index mal configurés, requêtes imbriquées inutiles, scans de tables entières… Voici les 10 erreurs SQL les plus coûteuses et comment les corriger immédiatement.</p>
+          <div class="bcard-read">6 min · Lire l'article →</div>
         </div>
       </a>
     </div>
@@ -2550,6 +2600,76 @@
         </button>
         <div class="faq-a"><p>DataBak travaille avec tous types de structures : startups en hypercroissance qui ont besoin de poser des fondations data solides, PME qui veulent industrialiser leur reporting, et grandes entreprises qui cherchent un renfort technique expert. Chaque contexte est unique — c'est ce qui rend le travail intéressant.</p></div>
       </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Je suis une PME sans équipe data — par où commencer ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>C'est exactement le profil avec lequel nous travaillons le plus. On commence par un audit gratuit de 30 minutes pour comprendre où sont vos données, ce que vous voulez en faire, et quel est le quick win le plus rapide à mettre en place. Souvent, un tableau de bord Power BI connecté à vos fichiers Excel existants suffit pour transformer votre pilotage en quelques jours.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Proposez-vous un audit data gratuit ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Oui. Nous proposons un premier appel de cadrage gratuit de 30 minutes pour analyser votre situation data, identifier vos principales problématiques et vous donner des recommandations concrètes — sans engagement. Réservez directement via le bouton Calendly ou contactez-nous par formulaire.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Peut-on automatiser nos rapports Excel sans tout changer ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Absolument. L'un de nos cas d'usage les plus fréquents consiste à automatiser des rapports Excel chronophages avec Python — sans changer vos outils ni vos habitudes. Le rapport est généré automatiquement, envoyé par email au bon moment, avec les bonnes données. Résultat : plusieurs heures économisées chaque semaine dès la première semaine.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NETWORKING ══ -->
+<section id="networking" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">Networking & Prospection</p>
+      <h2>On vient à vous,<br>partout en France</h2>
+      <p class="sub">Le meilleur consultant data c'est celui qu'on connaît. Voici où nous trouver.</p>
+    </div>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
+      <div class="why-item">
+        <div class="why-icon">🏢</div>
+        <div>
+          <h4>PME & Commerce local</h4>
+          <p>Vous croûlez sous les fichiers Excel clients, stocks, ventes ? On transforme ces données en tableaux de bord actionnables — sans tout chambouler.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🤝</div>
+        <div>
+          <h4>Meetups & Événements tech</h4>
+          <p>Paris Data, FrenchTech, clubs BNI, CCI Île-de-France — nous participons activement aux événements pour rencontrer décideurs et entrepreneurs.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">💼</div>
+        <div>
+          <h4>LinkedIn & Réseaux pro</h4>
+          <p>Notre profil LinkedIn pointe vers ce site. Nous partageons régulièrement des insights data, avant/après de dashboards et des conseils pour PME.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🔗</div>
+        <div>
+          <h4>Plateformes freelance</h4>
+          <p>Disponibles sur Malt, Comet et Freelance.com. Notre profil complet renvoie vers ce site pour rassurer les clients sur notre sérieux.</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:40px;padding:28px 32px;background:var(--bg);border:1px solid var(--border2);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+      <div>
+        <p style="font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;">// Audit gratuit</p>
+        <h3 style="font-family:var(--display);font-size:1.3rem;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;">Vous êtes une PME ou un directeur financier / marketing ?</h3>
+        <p style="color:var(--muted);font-size:14px;font-weight:300;">Réservez 30 minutes gratuites. On identifie ensemble vos quick wins data — sans jargon technique, sans engagement.</p>
+      </div>
+      <a href="#contact" class="btn-primary" style="white-space:nowrap;">📅 Prendre rendez-vous gratuitement</a>
     </div>
   </div>
 </section>
@@ -2979,7 +3099,7 @@ s0.parentNode.insertBefore(s1,s0);
   }
 
   // ── TYPEWRITER
-  const words = ['valeur', 'décisions', 'avantage', 'croissance'];
+  const words = ['décisions', 'tableaux de bord', 'pipelines fiables', 'revenus', 'insights'];
   let wi = 0, ci = 0, deleting = false;
   const twEl = document.getElementById('typewriter-text');
   function typeLoop() {
